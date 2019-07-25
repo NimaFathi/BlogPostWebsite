@@ -16,6 +16,7 @@ def contactUs_page(request):
 
 def get_template_example(request):
     context = {"title":"get_template_example"}
-    template_name = "home_page.html"
-    template_obj = get_template(template_name)
-    return HttpResponse(template_obj.render(context))
+    template_name   = "home_page.html"
+    template_obj    = get_template(template_name)
+    rendered_item   = template_obj.render(context)
+    return HttpResponse(redered_item)
