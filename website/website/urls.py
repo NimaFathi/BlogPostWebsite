@@ -23,7 +23,7 @@ urlpatterns = [
     path('about/', aboutUs_page, name='aboutUs_page'),
     path('contact/', contactUs_page, name='contactUs_page'),
     path('example/', get_template_example, name="example"),
-    re_path(r'^blog/(?P<slug>\w+)/$', blog_post_detail_page ),
+    path('blog/<str:slug>/', blog_post_detail_page ),
+    #re_path(r'^blog/(?P<slug>[a-zA-Z-]+)/$', blog_post_detail_page ),
     #we can use this easier:
-    #path('blog/<str:slug>/', blog_post_detail_page )
 ]
