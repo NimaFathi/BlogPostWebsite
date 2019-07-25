@@ -19,4 +19,4 @@ def get_template_example(request):
     template_name   = "home_page.html"
     template_obj    = get_template(template_name)
     rendered_item   = template_obj.render(context)
-    return HttpResponse(redered_item)
+    return HttpResponse(rendered_item)

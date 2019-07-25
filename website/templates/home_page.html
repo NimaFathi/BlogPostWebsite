@@ -1,1 +1,11 @@
 {% extends "base.html" %}
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+{{ title }}
+<!--  request is save in settings.py so we could use {{ user }} or {{request.path}} or {{ request.user}} and we save DRy principle ! 
+{{ request.path }}
+{{ user }}
+{{ user.is_authenticated }} -->
+{% endblock %}
