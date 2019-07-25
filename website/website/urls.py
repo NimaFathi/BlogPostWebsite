@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 from .views import home_page, aboutUs_page, contactUs_page, get_template_example
+from blog.views import blog_post_detail_page
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_page, name='home_page'),
     path('about/', aboutUs_page, name='aboutUs_page'),
     path('contact/', contactUs_page, name='contactUs_page'),
-    path('example/', get_template_example, name="example")
+    path('example/', get_template_example, name="example"),
+    re_path(r'^blog/(?P<slug>\w+)/$', blog_post_detail_page ),
+    #we can use this easier:
+    #path('blog/<str:slug>/', blog_post_detail_page )
 ]
