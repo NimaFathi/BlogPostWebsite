@@ -13,7 +13,7 @@ def blog_post_detail_page(request,slug):
     #   raise Http404
     #obj = queryset.first()
     obj = get_object_or_404(BlogPost, slug=slug)
-    template_name='blog_post_detail.html'
+    template_name='detail.html'
     context={'object':obj}
     return render(request, template_name, context)
 
@@ -23,34 +23,34 @@ def blog_post_detail_page(request,slug):
 
 def blog_post_list_view(request):
     queryset = BlogPost.objects.all() # list of python objects
-    # as search: queryset = BlogPost.objects.filter(title__icontaints='something in here')
-    template_name = 'blog_post_list.html'
+    # as search: queryset = BlogPost.objects.filter(title__icontaints='something here')
+    template_name = 'blog/list.html'
     context = {'object_list':queryset}
     return render(request, template_name, context= context)
 
 
 def blog_post_create_view(request):
-    template_name = 'blog_post_create.html'
+    template_name = 'blog/create.html'
     context = {'form':''}
     return render(request, template_name, context= context)
 
 
-def blog_post_detail_view(request):
+def blog_post_detail_view(request, slug):
     obj = get_object_or_404(BlogPost, slug=slug)
-    template_name='blog_post_detail.html'
+    template_name='blog/detail.html'
     context={'object':obj}
     return render(request, template_name, context)
 
 
-def blog_post_update_view(request):
+def blog_post_update_view(request,slug):
     obj = get_object_or_404(BlogPost, slug=slug)
-    template_name='blog_post_update.html'
+    template_name='blog/update.html'
     context={'object':obj, 'form':''}
     return render(request, template_name, context)
 
 
-def blog_post_delete_view(request):
+def blog_post_delete_view(request,slug):
     obj = get_object_or_404(BlogPost, slug=slug)
-    template_name='blog_post_delete.html'
+    template_name='blog/delete.html'
     context={'object':obj}
     return render(request, template_name, context)
