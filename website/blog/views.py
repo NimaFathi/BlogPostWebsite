@@ -23,6 +23,7 @@ def blog_post_detail_page(request,slug):
 
 def blog_post_list_view(request):
     queryset = BlogPost.objects.all() # list of python objects
+    # as search: queryset = BlogPost.objects.filter(title__icontaints='something in here')
     template_name = 'blog_post_list.html'
     context = {'object_list':queryset}
     return render(request, template_name, context= context)
