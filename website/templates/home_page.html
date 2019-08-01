@@ -5,7 +5,8 @@
 {{ request.path }}
 {{ user }}
 {{ user.is_authenticated }} -->
+
 {% for a in blog_list %}
-    {% include 'blog/list-inline.html' with blogpost=a%}
+    {% include 'blog/list-inline.html' with blogpost=a truncate=True detail=False  %}
 {% endfor %}
 {% endblock %}

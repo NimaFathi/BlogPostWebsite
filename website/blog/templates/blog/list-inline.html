@@ -1,10 +1,17 @@
 <div class="col-12 col-md-10 mb-3 mx-auto">
-    <div class="card" >
+    <div class="card " >
         <div class="card-body">
-            <h5 class="card-title">{{ blogpost.title }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">{{ blogpost.content }}</p>
-            <a href="{{ blogpost.get_absolute_url }}" class="card-link">Post Details</a>
+            <h5 class="card-title ">{{ blogpost.title }}</h5>
+            <h6 class="card-subtitle mb-2 mt-3 text-muted"> post id: {{blogpost.id}}</h6>
+            {% if truncate %}
+                <p class="card-text ">{{ blogpost.content|linebreaks| truncatewords:40 }}</p>
+            {% else %}
+                <p class="card-text ">{{ blogpost.content|linebreaks }}</p>
+            {% endif %}
+
+            {% if not detail %}
+                <a href="{{ blogpost.get_absolute_url }}" class="card-link">Full Post </a>
+            {% endif %}
         </div>
     </div>
 </div>
