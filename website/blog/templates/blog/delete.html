@@ -5,9 +5,7 @@ blog detail
 {% endblock %}
 
 {% block content %}
-<h1>Are you sure you want to delet {{ object.title }}</h1>
-<h2>{{ object.title }}</h2>
-
+<h1>Are you sure you want to delet {{ object.title }} ?</h1>
 <form method="POST">  {% csrf_token %}
     <button class="btn btn-danger">Yes, delete</button>
 </form>
