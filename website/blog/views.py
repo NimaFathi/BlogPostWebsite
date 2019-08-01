@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from blog.models import BlogPost
 from django.http import Http404
 from .forms import BlogPostForm, BlogPostModelForm
+from blog.models import BlogPost
 # Create your views here.
 
 
