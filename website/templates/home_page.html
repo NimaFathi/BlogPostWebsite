@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% include 'jumbotron.html'%}
 <h1>{{ title }}</h1>
 <!--  request is save in settings.py so we could use {{ user }} or {{request.path}} or {{ request.user}} and we save DRy principle ! 
 {{ request.path }}

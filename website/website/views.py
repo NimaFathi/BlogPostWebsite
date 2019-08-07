@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.template.loader import get_template
-from .forms import ContactForm
+from .forms import ContactForm, SignInForm
 from blog.models import BlogPost
 
 def home_page(request):
@@ -13,6 +13,21 @@ def home_page(request):
         }
     return render(request, "home_page.html", context)
 
+def signIn_page(request):
+
+    form = SignInForm(request.POST or None)
+
+    if form.is_valid():
+        print(form.cleaned_data)
+    else:
+        print("fas")
+    form = SignInForm()
+    context = {
+        "title": "Sign UP Page",
+        "form":form,
+    }    
+
+    return render(request,"signIn.html" , context)
 
 def aboutUs_page(request):
     my_title = "About Us"
