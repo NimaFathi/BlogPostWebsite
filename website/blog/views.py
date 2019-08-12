@@ -4,7 +4,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from blog.models import BlogPost
 from django.http import Http404
 from .forms import BlogPostForm, BlogPostModelForm
-from blog.models import BlogPost
 # Create your views here.
 
 
@@ -28,6 +27,9 @@ def blog_post_detail_page(request,slug):
 def blog_post_list_view(request):
     queryset = BlogPost.objects.all().published() # list of python objects
     # as search: queryset = BlogPost.objects.filter(title__icontaints='something here')
+    if request.user.is_authenticated:
+        myqueryset = BlogPost.objects.filter(user=request.user)
+        queryset = (queryset | myqueryset).distinct()
     template_name = 'blog/list.html'
     context = {'object_list':queryset}
     return render(request, template_name, context= context)

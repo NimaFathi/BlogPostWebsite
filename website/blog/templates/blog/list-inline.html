@@ -1,15 +1,18 @@
 <div class="col-12 col-md-10 mb-3 mx-auto">
-    <div class="card " >
+    <div class="card {% if not blogpost.publish_date  %} border border-warning {% endif %}" >
         <div class="card-body">
             <h5 class="card-title ">{{ blogpost.title }}</h5>
             <h6 class="card-subtitle mb-2 mt-3 text-muted"> post id: {{blogpost.id}}</h6>
+            <P class='card-text'>
+            <small class='text-muted' > {{ blogpost.publish_date }} </small>
             {% if truncate %}
-                <p class="card-text ">{{ blogpost.content|linebreaks| truncatewords:40 }}</p>
+                {{ blogpost.content|linebreaks| truncatewords:40 }}
             {% else %}
-                <p class="card-text ">{{ blogpost.content|linebreaks }}</p>
+                {{ blogpost.content|linebreaks }}
             {% endif %}
-
+            </p>
             {% if not detail %}
+                <h6 style="color:red;">{% if not blogpost.publish_date  %} Draft {% endif %}</h4>
                 <a href="{{ blogpost.get_absolute_url }}" class="card-link">Full Post </a>
             {% endif %}
         </div>

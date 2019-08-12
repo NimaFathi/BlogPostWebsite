@@ -6,7 +6,10 @@ from blog.models import BlogPost
 
 def home_page(request):
     my_title = "Home Page"
-    qs = BlogPost.objects.all()[:5]
+    qs = BlogPost.objects.all().published()[:5]
+    if request.user.is_authenticated:
+        myqueryset = BlogPost.objects.filter(user=request.user)[:5]
+        qs = (qs | myqueryset).distinct()
     context={
         "title":"Home Page",
         "blog_list":qs,
