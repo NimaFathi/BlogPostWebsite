@@ -7,3 +7,4 @@ urlpatterns = [
     path('<str:slug>/edit/', blog_post_update_view ),
     #re_path(r'^blog/(?P<slug>[a-zA-Z-]+)/$', blog_post_detail_page )
 ]
+

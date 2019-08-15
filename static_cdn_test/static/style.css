@@ -1,0 +1,14 @@
+h1 a, h2 a {
+    color: #C25100;
+}
+
+body {
+    background: linear-gradient(to right, #328136, #33AEFF);
+  } 
+.btn {
+    color:black;
+    margin-left: 5%;
+    width: 17%
+    
+  }
+  
