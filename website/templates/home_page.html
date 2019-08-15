@@ -8,6 +8,6 @@
 {{ user.is_authenticated }} -->
 
 {% for a in blog_list %}
-    {% include 'blog/list-inline.html' with blogpost=a truncate=True detail=False  %}
+    {% include 'list-inline2.html' with blogpost=a truncate=True detail=False  %}
 {% endfor %}
 {% endblock %}
