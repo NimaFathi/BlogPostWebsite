@@ -1,6 +1,11 @@
 <div class="col-12 col-md-10 mb-3 mx-auto">
     <div class="card {% if not blogpost.publish_date  %} border border-warning {% endif %}" >
         <div class="card-body">
+            {% if blogpost.image %}
+
+                <a href="{{ blogpost.get_absolute_url }}" class="card-link"><img src="{{ blogpost.image.url }}" class="card-img-top"/></a>
+            {% endif %}
+
             <h5 class="card-title ">{{ blogpost.title }}</h5>
             <h6 class="card-subtitle mb-2 mt-3 text-muted"> post id: {{blogpost.id}}</h6>
             <P class='card-text'>

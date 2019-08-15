@@ -37,7 +37,7 @@ def blog_post_list_view(request):
 #@login_required
 @staff_member_required
 def blog_post_create_view(request):
-    form = BlogPostModelForm(request.POST or None)
+    form = BlogPostModelForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         print(form.cleaned_data)
         # obj = BlogPost.objects.create(**form.cleaned_data)
