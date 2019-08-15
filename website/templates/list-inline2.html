@@ -1,6 +1,9 @@
 <div class="col-12 col-md-10 mb-3 mx-auto">
     <div class="card {% if not blogpost.publish_date  %} border border-warning {% endif %}" >
         <div class="card-body">
+            {% if blogpost.user.is_authenticated %}
+                <h2><b>@{{ blogpost.user}}</b></h2> <hr style="background-color:olive;height:2px">
+            {% endif %}
             {% if blogpost.image %}
 
                 <a href="{{ blogpost.get_absolute_url }}" class="card-link"><img src="{{ blogpost.image.url }}" class="card-img-top"  style="width:35%;height:35%;"/></a>
