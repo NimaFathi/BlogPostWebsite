@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from .views import home_page, aboutUs_page, contactUs_page, get_template_example, signIn_page
 from blog.views import blog_post_create_view
+from searches.views import search_view
 urlpatterns = [
     path('', home_page, name='home_page'),
     path('about/', aboutUs_page, name='aboutUs_page'),
@@ -26,6 +27,7 @@ urlpatterns = [
     path('blog-new/', blog_post_create_view),
     path('contact/', contactUs_page, name='contactUs_page'),
     path('example/', get_template_example, name="example"),
+    path('search/', search_view ),
     path('signIn/' , signIn_page),
     #re_path(r'^blog/(?P<slug>[a-zA-Z-]+)/$', blog_post_detail_page )
 ]
